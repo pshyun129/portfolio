@@ -371,7 +371,7 @@ body.view-detail .project { border-top: 0; }
 .footer h2 { margin: 0; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
 .footer p { margin: 0; max-width: var(--measure); color: var(--muted); }
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .skill-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-card { grid-template-columns: 1fr; }
   .project-card-visual { min-height: 300px; border-top: 1px solid var(--line); border-left: 0; }
@@ -389,7 +389,7 @@ body.view-detail .project { border-top: 0; }
   .chart-pair { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 640px) {
+@media screen and (max-width: 640px) {
   .skill-list { grid-template-columns: 1fr; }
   .skill-card { padding: 23px; }
   .project-card { min-height: 0; border-radius: 20px; }
@@ -430,7 +430,7 @@ body.view-detail .project { border-top: 0; }
   :root { --text: #000; --muted: #4b4b4b; --subtle: #7a7a7a; --line: #d4d4d4; --line-strong: #9d9d9d; --surface: #f6f6f6; }
   html { scroll-behavior: auto; }
   body { font-size: 9.5pt; line-height: 1.48; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  .site-header, .print-btn, .project-showcase { display: none !important; }
+  .site-header, .print-btn, .project-showcase, .project-back { display: none !important; }
   body .project { display: block !important; }
   .shell { width: 100%; max-width: none; }
   .hero { min-height: 150mm; padding: 4mm 0; grid-template-columns: 1.35fr .65fr; gap: 16mm; align-items: center; }
@@ -439,6 +439,7 @@ body.view-detail .project { border-top: 0; }
   .hero-copy { margin-top: 9mm; }
   .hero-copy p { font-size: 12pt; }
   .section, .project { padding: 8mm 0; }
+  .section { break-before: page; }
   .section-head { margin-bottom: 7mm; grid-template-columns: 32mm 1fr; gap: 5mm; }
   .section-head h2 { font-size: 23pt; }
   .skill-list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4mm; }
@@ -455,10 +456,17 @@ body.view-detail .project { border-top: 0; }
   .project { break-before: page; }
   .project-title-row { grid-template-columns: 1.45fr .55fr; gap: 14mm; padding-bottom: 6mm; }
   .project-title-row h2 { font-size: 38pt; }
+  .project-facts .meta-row { padding: 2mm 0; font-size: 8pt; }
   .project-subtitle { font-size: 12pt; }
   .project-body { grid-template-columns: 34mm 1fr; gap: 7mm; padding-top: 6mm; }
   .project-body + .project-body { padding-top: 7mm; }
-  .role-list { columns: 2; }
+  .role-list { columns: 2; break-inside: avoid; font-size: 8.5pt; }
+  .project-body:has(.architecture-figure) { break-before: page; break-inside: avoid; }
+  .architecture-figure { margin-top: 0; }
+  .architecture-image { width: auto; max-width: 100%; max-height: 112mm; object-fit: contain; }
+  .architecture-description { margin-top: 3mm; font-size: 8pt; }
+  .project-body:has(.performance-wrap) { break-before: page; }
+  .project-body:has(.implementation-list) { break-before: page; break-inside: avoid; }
   .architecture { padding: 5mm; }
   .implementation { grid-template-columns: 10mm 42mm 1fr; gap: 4mm; padding: 3mm 0; }
   .resume-grid, .project-title-row, .case, .implementation, .metric-strip,

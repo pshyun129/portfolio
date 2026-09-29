@@ -67,6 +67,7 @@
         </section>
         <section class="resume-column" aria-labelledby="profile-project-title">
           <h3 id="profile-project-title">Projects</h3>
+          <div class="resume-entry resume-project-entry"><div><p class="resume-entry-title">SOBI</p><time>2026.08 — 2026.09</time></div><p class="resume-project-topic">정책자금 탐색·자금 조합·신청 서류 작성 및 검증을 지원하는 소상공인 통합 지원 서비스</p><p>Spring Boot–FastAPI 문서 생성 연동, HWPX Document Agent와 지원금·대출 자금 조합 추천 기능을 구현했습니다.</p></div>
           <div class="resume-entry resume-project-entry"><div><p class="resume-entry-title">Ait</p><time>2026.07 — 2026.08</time></div><p class="resume-project-topic">AI 맞춤형 모의면접 및 실시간 화상 면접 스터디 플랫폼</p><p>문서·AI 서버 연동, LiveKit 실시간 통신, 배포 환경 구성과 성능 테스트를 담당했습니다.</p></div>
           <div class="resume-entry resume-project-entry"><div><p class="resume-entry-title">BRIX</p><time>2025.03 — 2025.11</time></div><p class="resume-project-topic">AI 기반 과일 당도 예측·자동 분류 및 직거래 플랫폼</p><p>Spring Security·JWT 인증, Redis 기반 토큰·인증번호 관리, S3 이미지 생명주기와 인기 상품 캐싱을 구현했습니다.</p></div>
           <div class="resume-entry resume-project-entry"><div><p class="resume-entry-title">Everyday Friends</p><time>2024.03 — 2024.11</time></div><p class="resume-project-topic">라즈베리파이 기반 감정 분석 맞춤형 힐링 서비스</p><p>Spring Boot·MySQL 기반 백엔드와 세션 인증, 감정 상태 기반 콘텐츠·광고 REST API를 구현했습니다.</p></div>
@@ -78,30 +79,151 @@
   <section class="section" id="skills" aria-labelledby="skills-title">
     <div class="shell">
       <header class="section-head"><div class="section-index">02 / SKILLS</div><div><h2 id="skills-title">Tech Skills</h2></div></header>
-      <div class="skill-list"><article class="skill-card"><h3>Backend</h3><ul><li>Java</li><li>Spring Boot</li><li>JPA</li><li>Spring Security</li><li>MyBatis</li><li>Gradle</li><li>Maven</li><li>REST API</li></ul></article><article class="skill-card"><h3>Database / Cache</h3><ul><li>MySQL</li><li>AWS RDS</li><li>Redis</li></ul><p>Refresh Token, 인증번호 TTL, 조회 캐싱에 활용</p></article><article class="skill-card"><h3>Infrastructure</h3><ul><li>AWS EC2</li><li>AWS S3</li><li>Docker</li><li>Docker Compose</li><li>Nginx</li><li>HTTPS/TLS</li><li>Linux</li></ul></article><article class="skill-card"><h3>Real-time / Network</h3><ul><li>LiveKit</li><li>WebRTC</li><li>WebSocket</li><li>LiveKit Webhook</li></ul><p>Room/Token/Webhook 연동 및 Docker 서버 운영</p></article></div>
+      <div class="skill-list">
+        <article class="skill-item">
+          <div class="skill-item-head"><h3>Java</h3><span class="skill-rating" role="img" aria-label="숙련도 5점 만점에 4점"><span aria-hidden="true"><span>★★★★</span><span>☆</span></span></span></div>
+          <p>객체지향 설계와 Spring Boot 기반 백엔드 프로젝트에서 주 언어로 사용했습니다.</p>
+        </article>
+        <article class="skill-item">
+          <div class="skill-item-head"><h3>Spring Boot</h3><span class="skill-rating" role="img" aria-label="숙련도 5점 만점에 4점"><span aria-hidden="true"><span>★★★★</span><span>☆</span></span></span></div>
+          <p>REST API, Security, 외부 API 연동, 트랜잭션 설계 등 백엔드 서비스 전반에 활용했습니다.</p>
+        </article>
+        <article class="skill-item">
+          <div class="skill-item-head"><h3>JPA</h3><span class="skill-rating" role="img" aria-label="숙련도 5점 만점에 3점"><span aria-hidden="true"><span>★★★</span><span>☆☆</span></span></span></div>
+          <p>Entity 관계 설계, JPQL, Fetch Join과 트랜잭션 처리에 활용했습니다.</p>
+        </article>
+        <article class="skill-item">
+          <div class="skill-item-head"><h3>Database</h3><span class="skill-rating" role="img" aria-label="숙련도 5점 만점에 3점"><span aria-hidden="true"><span>★★★</span><span>☆☆</span></span></span></div>
+          <p class="skill-detail">MySQL · PostgreSQL</p>
+          <p>서비스 데이터 모델링과 쿼리 작성, PostgreSQL 기반 Schema 변경과 데이터 처리 경험이 있습니다.</p>
+        </article>
+        <article class="skill-item">
+          <div class="skill-item-head"><h3>Redis</h3><span class="skill-rating" role="img" aria-label="숙련도 5점 만점에 3점"><span aria-hidden="true"><span>★★★</span><span>☆☆</span></span></span></div>
+          <p>인증 상태 TTL과 캐싱 등 상태 관리 기능에 프로젝트 단위로 활용했습니다.</p>
+        </article>
+        <article class="skill-item">
+          <div class="skill-item-head"><h3>Docker</h3><span class="skill-rating" role="img" aria-label="숙련도 5점 만점에 3점"><span aria-hidden="true"><span>★★★</span><span>☆☆</span></span></span></div>
+          <p>Spring Boot, FastAPI, PostgreSQL 등의 서비스를 Docker Compose 기반으로 구성하고 배포했습니다.</p>
+        </article>
+      </div>
+      <section class="experience-with" aria-labelledby="experience-with-title">
+        <h3 id="experience-with-title">Experience With</h3>
+        <ul><li>Spring Security</li><li>MyBatis</li><li>AWS EC2</li><li>Nginx</li><li>Jenkins</li><li>WebSocket</li><li>LiveKit</li><li>Gradle</li><li>Maven</li></ul>
+      </section>
     </div>
   </section>
 
   <section class="section project-showcase" id="projects" aria-labelledby="projects-title">
     <div class="shell">
-      <header class="section-head"><div class="section-index">03 / PROJECTS</div><div><h2 id="projects-title">Selected Projects</h2><p class="section-intro">문제를 정의하고 운영 가능한 구조로 해결한 두 프로젝트입니다.</p></div></header>
+      <header class="section-head"><div class="section-index">03 / PROJECTS</div><div><h2 id="projects-title">Selected Projects</h2><p class="section-intro">문제를 정의하고 운영 가능한 구조로 해결한 세 프로젝트입니다.</p></div></header>
       <div class="project-card-list">
+        <a class="project-card" href="#sobi" data-project-link="sobi">
+          <div class="project-card-copy"><p class="project-card-index">01 · TEAM PROJECT</p><h3>SOBI</h3><p class="project-card-summary">정책자금 탐색부터 자금 조합, 신청 서류 작성·검증까지 지원하는 소상공인 통합 지원 서비스</p><p class="project-card-stack">Java · Spring Boot · PostgreSQL · FastAPI · Docker · LLM</p><strong class="project-card-result">HWPX Document Automation</strong><span class="project-card-link">View Case Study →</span></div>
+          <div class="project-card-visual"><img src="./img/sobi_아키텍쳐.png" alt="SOBI 서비스 아키텍처 미리보기"></div>
+        </a>
         <a class="project-card" href="#ait" data-project-link="ait">
-          <div class="project-card-copy"><p class="project-card-index">01 · TEAM PROJECT</p><h3>Ait</h3><p class="project-card-summary">AI 모의면접과 실시간 화상 스터디를 결합한 면접 준비 플랫폼</p><p class="project-card-stack">Java · Spring Boot · Redis · Docker · AWS · LiveKit</p><strong class="project-card-result">CPU 87.8% → 63.0%</strong><span class="project-card-link">View Case Study →</span></div>
+          <div class="project-card-copy"><p class="project-card-index">02 · TEAM PROJECT</p><h3>Ait</h3><p class="project-card-summary">AI 모의면접과 실시간 화상 스터디를 결합한 면접 준비 플랫폼</p><p class="project-card-stack">Java · Spring Boot · Redis · Docker · AWS · LiveKit</p><strong class="project-card-result">CPU 87.8% → 63.0%</strong><span class="project-card-link">View Case Study →</span></div>
           <div class="project-card-visual"><img src="./img/ait_아키텍쳐.png" alt="Ait 서비스 아키텍처 미리보기"></div>
         </a>
         <a class="project-card" href="#brix" data-project-link="brix">
-          <div class="project-card-copy"><p class="project-card-index">02 · TEAM PROJECT</p><h3>BRIX</h3><p class="project-card-summary">AI 과일 품질 측정 장치와 모바일 직거래 서비스를 연결한 플랫폼</p><p class="project-card-stack">Spring Boot · JWT · Redis · S3 · MySQL</p><strong class="project-card-result">Backend Ownership</strong><span class="project-card-link">View Case Study →</span></div>
+          <div class="project-card-copy"><p class="project-card-index">03 · TEAM PROJECT</p><h3>BRIX</h3><p class="project-card-summary">AI 과일 품질 측정 장치와 모바일 직거래 서비스를 연결한 플랫폼</p><p class="project-card-stack">Spring Boot · JWT · Redis · S3 · MySQL</p><strong class="project-card-result">Backend Ownership</strong><span class="project-card-link">View Case Study →</span></div>
           <div class="project-card-visual"><img src="./img/brix_아키텍쳐.png" alt="BRIX 서비스 아키텍처 미리보기"></div>
         </a>
       </div>
     </div>
   </section>
 
+  <article class="project" id="sobi" aria-labelledby="sobi-title">
+    <div class="shell">
+      <a class="project-back" href="#projects" aria-label="프로젝트 목록으로 돌아가기">← 프로젝트 목록</a>
+      <div class="project-kicker"><span>Project 01 · Primary</span><span>2026.08 — 2026.09</span></div>
+      <div class="project-title-row">
+        <div><h2 id="sobi-title">SOBI</h2><p class="project-subtitle">정책자금 탐색부터 자금 조합, 신청 서류 작성·검증과 상환 관리까지 지원하는 소상공인 통합 지원 서비스</p></div>
+        <dl class="project-facts meta-list">
+          <div class="meta-row"><dt>Type</dt><dd>SSAFY 15기 특화 프로젝트</dd></div>
+          <div class="meta-row"><dt>Team</dt><dd>Backend 3 · Frontend 2 · Infrastructure 1</dd></div>
+          <div class="meta-row"><dt>My Role</dt><dd>Backend · Document Agent</dd></div>
+          <div class="meta-row"><dt>Core</dt><dd>Spring Boot · PostgreSQL · FastAPI · HWPX · Docker</dd></div>
+        </dl>
+      </div>
+
+      <section class="project-body" aria-labelledby="sobi-overview"><h3 id="sobi-overview">Overview</h3><div class="project-content">
+        <p>소상공인의 사업자·금융 정보를 기반으로 신청 가능한 지원사업과 대출을 탐색하고, 필요한 자금에 맞는 상품 조합을 추천하는 서비스입니다. 신청 단계에서는 필요한 서류를 안내하고 HWPX 신청서 자동 작성과 제출 서류 검증을 지원하며, 이후 대출 상환 관리까지 하나의 서비스에서 제공합니다.</p>
+      </div></section>
+
+      <section class="project-body" aria-labelledby="sobi-role"><h3 id="sobi-role">My Role</h3><div class="project-content">
+        <ul class="role-list">
+          <li>Spring Boot 백엔드 API 개발</li>
+          <li>Spring Boot ↔ FastAPI 문서 생성 연동</li>
+          <li>HWP/HWPX Document Agent 설계 및 구현</li>
+          <li>신청서 작성 대상 Field 추출 구조 구현</li>
+          <li>LLM 기반 Field Schema 분석</li>
+          <li>Source Registry 기반 데이터 매핑 구조 구현</li>
+          <li>HWPX Writer 구현</li>
+          <li>생성 문서 검증 로직 구현</li>
+          <li>문서 원본 다운로드 API</li>
+          <li>지원금·대출 통합 자금 조합 추천</li>
+          <li>SSAFY 금융망 API 연동</li>
+          <li>금융망 공통 Client·Header 구조 구현</li>
+          <li>역할별 대시보드 API 개발</li>
+          <li>Document Agent용 PostgreSQL Schema 설계</li>
+          <li>문서 Schema 저장·조회 트랜잭션 설계</li>
+        </ul>
+      </div></section>
+
+      <section class="project-body" aria-labelledby="sobi-arch"><h3 id="sobi-arch">Architecture</h3><div class="project-content">
+        <figure class="architecture-figure"><img class="architecture-image" src="./img/sobi_아키텍쳐.png" alt="SOBI 서비스 아키텍처: React, Nginx, Spring Boot, PostgreSQL, Redis, FastAPI AI Server, 금융망과 문서 저장소 연결 구조"></figure>
+        <p class="architecture-description">Spring Boot가 인증·사업자·신청·자금 조합 등 서비스 로직을 담당하고 PostgreSQL·Redis와 금융 API를 연동합니다. FastAPI AI 서버는 지원사업 판정·서류 처리·Document Agent 기능을 담당하며, Spring Boot는 인증된 사용자의 요청과 작성 대상 Template을 검증한 뒤 문서 생성 요청을 전달합니다.</p>
+      </div></section>
+
+      <section class="project-body" aria-labelledby="sobi-key"><h3 id="sobi-key">Key Implementations</h3><div class="project-content">
+        <div class="implementation-list">
+          <div class="implementation"><span class="impl-num">01</span><h4>Spring Boot–FastAPI 문서 생성 경계</h4><p>작성 가능한 문서와 최신 완료 Template을 먼저 확인한 뒤 FastAPI Document Agent에 생성을 요청하도록 구성했습니다. 장시간 진행될 수 있는 LLM·파일 생성 작업 동안 DB Transaction을 유지하지 않도록 데이터 조회와 외부 I/O의 경계를 분리했습니다. 또한 생성 결과의 문서·Template ID, UUID, 파일명, MIME Type과 비어 있지 않은 본문을 검증한 후 사용자에게 HWPX 파일을 전달합니다.</p></div>
+          <div class="implementation"><span class="impl-num">02</span><h4>Source Registry 기반 데이터 접근 분리</h4><p>LLM의 Field 의미 분석과 실제 사용자 데이터 조회 책임을 분리했습니다. DIRECT·COMPUTED·GENERATED·USER_INPUT으로 Source 유형을 구분하고, 직접 조회·계산·문장 생성·사용자 직접 입력의 처리 정책을 각각 분리했습니다.</p></div>
+          <div class="implementation"><span class="impl-num">03</span><h4>HWPX 구조 보존 Writer</h4><p>신청서의 물리적 작성 위치를 기준으로 필요한 값만 최소 수정하고 기존 Paragraph·Run·Style 구조는 최대한 보존했습니다. 작성 전 대상 구조를 검증하고 생성 후에는 HWPX를 다시 파싱해 기대 문자열과 실제 결과를 대조합니다.</p></div>
+          <div class="implementation"><span class="impl-num">04</span><h4>지원금·대출 통합 자금 조합 추천</h4><p>서로 다른 지원사업과 대출 상품을 FundingCandidate라는 공통 모델로 추상화하고, 최대 3개 상품 조합에서 최소·최대 가능 금액을 검사했습니다. 지원금을 우선 배정하고 이후 저금리 대출을 배치해 총상환액·월납입액·평균금리 등을 기준으로 추천 조합을 제공합니다.</p></div>
+          <div class="implementation"><span class="impl-num">05</span><h4>금융망 공통 Client 구조</h4><p>금융 API별 Request·Response DTO는 도메인에 맞게 분리하면서 공통 Header 생성과 HTTP 요청, 업무 성공 코드 검증은 공통 Client로 구성했습니다. 이를 계좌·대출·상환 API에서 재사용했습니다.</p></div>
+        </div>
+      </div></section>
+
+      <section class="project-body" aria-labelledby="sobi-agent"><h3 id="sobi-agent">Document Agent</h3><div class="project-content">
+        <p>신청서 전체 작성을 LLM에 맡기지 않고, 문서의 물리 구조 분석·Field 의미 판단·실제 데이터 조회·문서 쓰기 책임을 단계별로 분리했습니다. LLM은 Field의 의미와 Source를 판단하고, 실제 값은 검증된 Source Registry를 통해 조회하거나 계산한 뒤 Writer가 원본 HWPX 구조에 반영합니다.</p>
+        <ol class="document-flow" aria-label="Document Agent 처리 순서">
+          <li><span class="impl-num" aria-hidden="true">01</span><div><h4>Original HWP / HWPX</h4><p>원본 신청서</p></div></li>
+          <li><span class="impl-num" aria-hidden="true">02</span><div><h4>Normalizer</h4><p>HWP → HWPX 변환 및 작성 포맷 정규화</p></div></li>
+          <li><span class="impl-num" aria-hidden="true">03</span><div><h4>Parser</h4><p>Table · Cell · Paragraph · 물리 위치 추출</p></div></li>
+          <li><span class="impl-num" aria-hidden="true">04</span><div><h4>Candidate Extractor</h4><p>실제 입력 가능한 Field 후보 추출</p></div></li>
+          <li><span class="impl-num" aria-hidden="true">05</span><div><h4>Schema Analyzer</h4><p>LLM 기반 Field 의미·Source 분석</p></div></li>
+          <li><span class="impl-num" aria-hidden="true">06</span><div><h4>Source Resolution</h4><p>실제 사용자·사업자·금융 데이터 조회 및 계산</p></div></li>
+          <li><span class="impl-num" aria-hidden="true">07</span><div><h4>Writer</h4><p>HWPX 원본 구조를 유지하며 값 삽입</p></div></li>
+          <li><span class="impl-num" aria-hidden="true">08</span><div><h4>Generated HWPX</h4><p>검증된 신청서 초안 생성</p></div></li>
+        </ol>
+        <section class="source-policy-section" aria-labelledby="sobi-source-policy">
+          <h4 id="sobi-source-policy">Source Policy</h4>
+          <p>Field의 의미를 분석하는 책임과 실제 값을 가져오는 책임을 분리하고, 값의 성격에 따라 Source 처리 정책을 구분했습니다.</p>
+          <div class="source-policy-grid">
+            <article class="source-policy"><h5>DIRECT</h5><p>사용자·사업자 정보처럼 DB에서 직접 조회할 수 있는 값</p><small>대표자명 · 사업자번호 · 주소</small></article>
+            <article class="source-policy"><h5>COMPUTED</h5><p>여러 데이터를 조합하거나 기간 조건에 따라 계산해야 하는 값</p><small>최근 N개월 매출 · 기간별 합계</small></article>
+            <article class="source-policy"><h5>GENERATED</h5><p>검증된 구조화 데이터를 근거로 문장을 생성해야 하는 값</p><small>사업 내용 · 서술형 작성 항목</small></article>
+            <article class="source-policy"><h5>USER_INPUT</h5><p>자동으로 결정하지 않고 사용자가 직접 입력해야 하는 값</p><small>서명 · 동의 · 확인이 필요한 정보</small></article>
+          </div>
+          <p class="scope-note">LLM이 실제 값을 임의로 생성해 Writer에 전달하지 않고, 정의된 Source 정책과 검증을 통과한 데이터만 문서 작성 단계에서 사용하도록 구성했습니다.</p>
+        </section>
+      </div></section>
+
+      <section class="project-body" aria-labelledby="sobi-ts"><h3 id="sobi-ts">Troubleshooting</h3><div class="project-content">
+        <div class="case-list">
+          <article class="case"><p class="case-label">Case 01 · Document Structure</p><h4>단일 빈 문단을 전제로 한 Writer를 실제 HWPX의 다중 문단 구조까지 확장했다.</h4><dl class="case-grid"><dt>Problem</dt><dd>초기 Writer는 작성 대상 Cell에 빈 Paragraph가 하나만 존재한다고 가정했습니다. 하지만 실제 신청서에는 화면상 하나의 빈 Cell처럼 보여도 여러 개의 빈 Paragraph와 Run으로 구성된 영역이 있었고, 이러한 문서에서는 TARGET_STRUCTURE_UNSUPPORTED 오류가 발생했습니다.</dd><dt>Analysis</dt><dd>HWPX에서는 화면에 보이는 하나의 Cell과 XML 내부의 Paragraph 구조가 일치하지 않을 수 있음을 확인했습니다. 값을 작성하기 위해 Cell 전체를 다시 구성하면 기존 Run·Style이나 서식 구조가 손상될 가능성도 있었습니다.</dd><dt>Decision</dt><dd>여러 Paragraph를 하나로 합치거나 Cell 전체를 재생성하지 않고, 실제 작성 대상이 맞는지 먼저 검증한 뒤 필요한 Paragraph만 최소 수정하기로 했습니다.</dd><dt>Implementation</dt><dd>Parser 결과와 실제 Paragraph 구조를 대응시키고 모든 Paragraph가 비어 있는지 확인했습니다. 이후 첫 번째 대상 Paragraph에만 값을 삽입하고 나머지 빈 Paragraph와 Run·Style은 유지했습니다. 작성 후에는 생성된 HWPX를 다시 파싱해 기대 문자열과 실제 결과를 비교하도록 검증 절차를 추가했습니다.</dd><dt>Result</dt><dd class="result">기존에 처리하지 못했던 여러 빈 Paragraph로 구성된 작성 영역까지 지원하도록 Writer를 확장했고, 원본 서식 구조를 최대한 유지하면서 값을 삽입할 수 있게 했습니다.</dd><dt>What I learned</dt><dd>문서 포맷을 처리할 때 화면에 보이는 형태를 기준으로 구조를 가정하기보다 실제 파일 내부의 물리 구조를 확인하고, 변경 범위를 최소화하는 것이 중요하다는 점을 배웠습니다.</dd></dl></article>
+          <article class="case"><p class="case-label">Case 02 · LLM Reliability</p><h4>LLM의 잘못된 Schema 응답이 후속 시스템으로 전파되지 않도록 Validation과 제한된 Repair를 적용했다.</h4><dl class="case-grid"><dt>Problem</dt><dd>Field 의미 분석 과정에서 LLM이 서로 역할이 다른 Enum 항목을 혼동해 Schema에 정의되지 않은 값을 반환하는 문제가 발생했습니다. 잘못된 응답을 그대로 저장하면 Source 조회와 Writer 단계까지 오류가 전파될 수 있었습니다.</dd><dt>Analysis</dt><dd>Prompt를 보완하는 것만으로는 동일한 형식 오류가 다시 발생하지 않는다고 보장할 수 없었습니다. LLM 응답 역시 외부 시스템에서 들어오는 입력이므로 모델이 생성했다는 이유만으로 신뢰 가능한 데이터로 취급해서는 안 된다고 판단했습니다.</dd><dt>Decision</dt><dd>Prompt 개선과 별개로 애플리케이션 레벨에서 명확한 Schema 계약을 정의하고, 검증을 통과한 결과만 후속 단계에서 사용할 수 있도록 구성했습니다.</dd><dt>Implementation</dt><dd>Pydantic으로 Enum·Candidate ID·Source Type·Source Key 등 응답 구조를 검증했습니다. 검증 실패 시 오류 위치, 받은 값, 허용 가능한 값을 포함한 Repair 요청을 생성하고 전체 후보에 대해 한 번만 재응답하도록 제한했습니다. Repair 결과 역시 동일한 Schema 검증을 다시 통과해야 저장되도록 했습니다.</dd><dt>Result</dt><dd class="result">정의되지 않은 Schema 값이 DB와 Writer 단계로 그대로 전달되는 경로를 차단하고, 복구 가능한 오류만 제한적으로 다시 요청하는 구조를 만들었습니다.</dd><dt>What I learned</dt><dd>LLM 출력 역시 검증이 필요한 외부 입력이며, 생성 품질을 Prompt에만 의존하지 않고 시스템 계약과 실패 정책으로 제어해야 한다는 점을 배웠습니다.</dd></dl></article>
+        </div>
+      </div></section>
+    </div>
+  </article>
+
   <article class="project" id="ait" aria-labelledby="ait-title">
     <div class="shell">
       <a class="project-back" href="#projects" aria-label="프로젝트 목록으로 돌아가기">← 프로젝트 목록</a>
-      <div class="project-kicker"><span>Project 01 · Primary</span><span>2026.07.06 — 2026.08.10</span></div>
+      <div class="project-kicker"><span>Project 02</span><span>2026.07.06 — 2026.08.10</span></div>
       <div class="project-title-row">
         <div><h2 id="ait-title">Ait</h2><p class="project-subtitle">AI 맞춤형 모의면접과 실시간 화상 면접 스터디를 통합한 개발자 면접 준비 플랫폼</p></div>
         <dl class="project-facts meta-list">
@@ -174,7 +296,7 @@
   <article class="project" id="brix" aria-labelledby="brix-title">
     <div class="shell">
       <a class="project-back" href="#projects" aria-label="프로젝트 목록으로 돌아가기">← 프로젝트 목록</a>
-      <div class="project-kicker"><span>Project 02</span><span>2025.03 — 2025.11</span></div>
+      <div class="project-kicker"><span>Project 03</span><span>2025.03 — 2025.11</span></div>
       <div class="project-title-row">
         <div><h2 id="brix-title">BRIX</h2><p class="project-subtitle">RGB 카메라와 AI 기반 과일 당도 예측·자동 분류 장치, 모바일 직거래 플랫폼을 연결한 시스템</p></div>
         <dl class="project-facts meta-list">

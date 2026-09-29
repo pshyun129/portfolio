@@ -1,12 +1,12 @@
 const body = document.body;
 const viewToggle = document.querySelector('[data-view-toggle]');
-const projectIds = new Set(['ait', 'brix']);
+const projectIds = new Set(['sobi', 'ait', 'brix']);
 const projectLinks = document.querySelectorAll('[data-project-link]');
 const projectBackLinks = document.querySelectorAll('.project-back');
 let overviewScrollY = null;
 
 function setView(view, projectId = '') {
-  body.classList.remove('view-full', 'view-detail', 'detail-ait', 'detail-brix');
+  body.classList.remove('view-full', 'view-detail', 'detail-sobi', 'detail-ait', 'detail-brix');
 
   if (view === 'full') body.classList.add('view-full');
   if (view === 'detail' && projectIds.has(projectId)) {

@@ -53,7 +53,10 @@
             <div><dt>Birth</dt><dd>2001.08.26</dd></div>
             <div><dt>Education</dt><dd>수원대학교 컴퓨터SW전공 · SSAFY 15기</dd></div>
             <div><dt>Active</dt><dd class="resume-detail-list">
+              <span><strong>삼성청년SW·AI아카데미</strong><time>2026.01 ~ ing</time></span>
               <span><strong>알고리즘 문제 풀이 스터디 운영</strong><time>2025.06 — 2025.12</time></span>
+              <span><strong>한이음 드림업 프로젝트 (BRIX) 백엔드</strong><time>2025.03 ~ 2025.11</time></span>
+              <span><strong>한이음 ICT 멘토링 프로젝트 (Everyday Friends) 백엔드</strong><time>2024.03 ~ 2024.11</time></span>
               <span><strong>교수 지도 헬스케어 서비스 개발 프로젝트</strong><time>2024.03 — 2024.07</time></span>
             </dd></div>
           </dl>
@@ -284,6 +287,8 @@
           <article class="case"><p class="case-label">Case 01 · Performance</p><h4>Redis 캐싱 적용 후 동일 조건으로 다시 검증하고, 더 높은 부하에서 새 한계를 찾았다.</h4><section class="case-result-summary" aria-labelledby="performance-result-title"><h5 id="performance-result-title">성능 개선 결과</h5><div class="metric-strip" aria-label="Redis 캐싱 후 주요 결과"><div class="metric"><strong><span class="accent">87.8%</span> → 63.0%</strong><span>600 VU CPU 사용률 · 캐싱 적용 전후</span></div><div class="metric"><strong>24.8%p</strong><span>CPU 사용률 감소 폭</span></div><div class="metric"><strong>800 VU</strong><span>응답시간·CPU·Run Queue가 다시 급증한 새 포화 구간</span></div></div></section><dl class="case-grid"><dt>Problem</dt><dd>사용자 행동 기반 테스트에서 600 VU 구간의 서버 CPU 사용률이 약 87.8%까지 상승했다.</dd><dt>Analysis</dt><dd>대시보드·스터디·리포트 등 반복 조회 비중이 높은 흐름을 확인하고, 변경 빈도가 낮은 데이터가 요청마다 조회 로직과 DB 접근을 반복한다고 판단했다.</dd><dt>Decision</dt><dd>조회 경로 전체를 변경하기보다 반복 조회 데이터를 Redis 캐시에 두고 동일 데이터 요청의 DB 접근과 기존 조회 로직을 줄이는 방향을 선택했다.</dd><dt>Implementation</dt><dd>주요 조회 데이터에 캐싱을 적용한 뒤 동일한 600 VU로 재테스트했다. 개선 후 700·800 VU까지 부하를 확장했다.</dd><dt>Result</dt><dd class="result">600 VU CPU 사용률 약 87.8% → 63.0% 수준, 24.8%p 감소. 800 VU 부근에서 평균 응답 142.2ms·p95 230ms·CPU 평균 87.1%·Run Queue 11.91로 다시 포화 징후를 확인했다.</dd><dt>What I learned</dt><dd>성능 개선은 한 번의 수치 개선으로 끝내지 않고, 동일 조건 재검증과 부하 확대를 통해 새로운 병목을 다시 찾는 과정까지 포함해야 한다.</dd></dl></article>
 
           <article class="case"><p class="case-label">Case 02 · AI Cost</p><h4>작은 문서 수정까지 전체 AI 분석을 발생시키던 구조를 조건부 재분석 방식으로 바꿨다.</h4><dl class="case-grid"><dt>Problem</dt><dd>오탈자·띄어쓰기 같은 작은 수정에서도 전체 문서를 GMS에 다시 보내 LLM 토큰이 반복 소비됐다.</dd><dt>Analysis</dt><dd>문서를 여러 번 다듬는 실제 사용 패턴에서는 <span class="mono">수정 발생 = 항상 재분석</span> 구조가 호출 횟수와 비용을 누적시킨다고 판단했다.</dd><dt>Decision</dt><dd>문자열 표현 차이로 인한 오판을 줄이기 위해 먼저 Unicode NFC 정규화를 적용하고, Levenshtein Distance로 변경 비율을 계산하기로 했다.</dd><dt>Implementation</dt><dd>변경 비율 10% 이상일 때만 재분석 이벤트를 발생시키고, 분석 작업은 문서 저장 요청과 분리해 이벤트 기반 비동기로 처리했다.</dd><dt>Result</dt><dd class="result">작은 수정마다 전체 분석을 반복하던 구조를 의미 있는 수준의 변경이 있을 때만 재분석하는 구조로 변경했다. 정확한 토큰 절감률은 측정하지 않았다.</dd><dt>What I learned</dt><dd>AI API 연동에서도 기능 호출 자체보다 비용과 호출 빈도를 애플리케이션 레벨 정책으로 제어하는 것이 중요하다.</dd></dl></article>
+
+          <h3 class="print-continuation">Ait / Troubleshooting · Continued</h3>
 
           <article class="case"><p class="case-label">Case 03 · Network</p><h4>Webhook Timeout을 전체 시스템 문제가 아닌 네트워크 구간 문제로 나눠 범위를 좁혔다.</h4><dl class="case-grid"><dt>Problem</dt><dd>Docker Container의 LiveKit이 Host의 Spring Boot Webhook Endpoint로 요청할 때 <span class="mono">host.docker.internal</span> 연결이 Timeout됐다.</dd><dt>Analysis</dt><dd><span class="mono">LiveKit Container → Docker Host → Nginx → Spring Boot</span>로 경로를 나누고 각 구간의 접근 가능 여부와 Endpoint 도달 여부를 확인했다.</dd><dt>Decision</dt><dd>Docker 내부 주소에 직접 의존하지 않고 외부 HTTPS Domain과 Nginx Reverse Proxy를 통하는 경로로 재구성했다.</dd><dt>Implementation</dt><dd>Webhook 목적지를 외부 HTTPS 경로로 변경하고 Spring Boot Endpoint의 HTTP 응답을 단계적으로 확인했다.</dd><dt>Result</dt><dd class="result">LiveKit 이벤트가 Nginx를 거쳐 Spring Boot까지 전달되는 경로를 구축했다.</dd><dt>What I learned</dt><dd>복합 네트워크 문제는 한 번에 설정을 바꾸기보다 요청 경로를 구간별로 검증하면 원인 범위를 더 빠르게 좁힐 수 있다.</dd></dl></article>
 

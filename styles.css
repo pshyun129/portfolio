@@ -13,6 +13,7 @@
 
 * { box-sizing: border-box; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.print-continuation { display: none; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -453,6 +454,9 @@ body.view-detail .project { border-top: 0; }
   html { scroll-behavior: auto; }
   body { font-size: 9.5pt; line-height: 1.48; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   .site-header, .print-btn, .project-showcase, .project-back { display: none !important; }
+  body.view-detail .hero { display: grid; }
+  body.view-detail #about, body.view-detail #skills { display: block; }
+  body.view-detail .project { border-top: 1px solid var(--line-strong); }
   body .project { display: block !important; }
   .shell { width: 100%; max-width: none; }
   .hero { min-height: 150mm; padding: 4mm 0; grid-template-columns: 1.35fr .65fr; gap: 16mm; align-items: center; }
@@ -473,11 +477,21 @@ body.view-detail .project { border-top: 0; }
   .experience-with { margin-top: 6mm; padding-top: 4mm; break-inside: avoid; }
   .experience-with li { padding: 1.4mm 2.2mm; font-size: 8pt; }
   .about-grid { gap: 10mm; }
+  /* Keep the profile heading and all four project summaries on one print page. */
+  #about { padding: 5mm 0; break-inside: avoid; }
+  .resume-profile { padding: 0; }
   .resume-label { margin-bottom: 7mm; }
   .resume-heading { margin-bottom: 7mm; }
   .resume-heading h2 { font-size: 30pt; }
   .resume-grid { grid-template-columns: .72fr 1.15fr 1.25fr; gap: 10mm; }
   .resume-basics { grid-column: auto; }
+  .resume-basics .resume-list > div { font-size: 9pt; padding-bottom: 2mm; }
+  .resume-basics .resume-detail-list { gap: 2.5mm; }
+  .resume-basics .resume-detail-list strong { word-break: keep-all; }
+  .resume-column h3 { margin-bottom: 4mm; }
+  .resume-category { margin-top: 4mm; }
+  .resume-entry + .resume-entry { margin-top: 4mm; }
+  .resume-entry > p:last-child { font-size: 9pt; line-height: 1.5; }
   .project { break-before: page; }
   .project-title-row { grid-template-columns: 1.45fr .55fr; gap: 14mm; padding-bottom: 6mm; }
   .project-title-row h2 { font-size: 38pt; }
@@ -512,6 +526,86 @@ body.view-detail .project { border-top: 0; }
   .metric strong { font-size: 18pt; }
   .chart-pair { gap: 5mm; margin-top: 5mm; }
   .performance-table th, .performance-table td { padding: 2.3mm 2mm; }
+  /* After architecture, paginate by topic and keep related evidence together. */
+  .project-body:has(.implementation-list),
+  .project-body:has(.document-flow),
+  .project-body:has(.performance-wrap),
+  .project-body:has(.case-list) {
+    display: block;
+    break-before: page;
+    padding-top: 4mm;
+  }
+  .project-body:is(:has(.implementation-list), :has(.document-flow), :has(.performance-wrap), :has(.case-list)) > h3 {
+    margin-bottom: 5mm;
+    padding-bottom: 3mm;
+    border-bottom: 1px solid var(--line-strong);
+    font-size: 10pt;
+  }
+  #sobi .project-body:is(:has(.implementation-list), :has(.document-flow), :has(.case-list)) > h3::before { content: "SOBI / "; color: var(--muted); }
+  #ait .project-body:is(:has(.implementation-list), :has(.performance-wrap), :has(.case-list)) > h3::before { content: "Ait / "; color: var(--muted); }
+  #brix .project-body:is(:has(.implementation-list), :has(.case-list)) > h3::before { content: "BRIX / "; color: var(--muted); }
+  .project-body:is(:has(.implementation-list), :has(.document-flow), :has(.performance-wrap), :has(.case-list)) .project-content > p { max-width: none; }
+  .implementation { grid-template-columns: 10mm 60mm 1fr; padding: 4mm 0; gap: 5mm; }
+  .implementation h4 { font-size: 11pt; }
+  .implementation p { max-width: none; font-size: 10pt; line-height: 1.6; }
+
+  .project-body:has(.document-flow) .project-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm 9mm;
+  }
+  .project-body:has(.document-flow) .project-content > p { grid-column: 1 / -1; margin-bottom: 0; }
+  .document-flow { margin: 0; }
+  .source-policy-section { padding: 0; break-before: auto; }
+  .source-policy-section > h4 { margin-bottom: 2mm; }
+  .source-policy-section > p, .source-policy p { font-size: 9pt; }
+  .source-policy-grid { gap: 3mm 5mm; margin-top: 3mm; }
+  .source-policy small { font-size: 8pt; }
+  .source-policy-section .scope-note { margin-top: 4mm; padding-top: 3mm; }
+
+  .project-body:has(.performance-wrap) .project-content {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 4mm 8mm;
+  }
+  .project-body:has(.performance-wrap) .project-content > p { grid-column: 1 / -1; margin-bottom: 0; }
+  .performance-wrap { margin: 0; }
+  .performance-wrap:not(.performance-before) { display: contents; }
+  .performance-before { grid-column: 1; grid-row: 2; margin: 0; }
+  .performance-wrap > .performance-table { grid-column: 1; grid-row: 3; }
+  .performance-table { font-size: 9pt; }
+  .performance-table thead th { font-size: 8pt; }
+  .performance-table th, .performance-table td { padding: 2mm 1.5mm; }
+  .chart-pair { grid-column: 2; grid-row: 2 / 4; grid-template-columns: 1fr; gap: 4mm; margin: 0; }
+  .chart { margin: 0; padding-top: 2mm; }
+  .chart-title { margin-bottom: 1mm; }
+  .chart svg { height: 35mm; }
+  .chart-note { margin: 1mm 0 0; font-size: 8pt; }
+
+  .case-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7mm 9mm; align-items: start; }
+  .case-list > .print-continuation {
+    display: block;
+    grid-column: 1 / -1;
+    break-before: page;
+    break-after: avoid;
+    margin: 0;
+    padding: 4mm 0 3mm;
+    border-bottom: 1px solid var(--line-strong);
+    font-size: 10pt;
+  }
+  .case { padding-top: 3mm; }
+  .case-label { margin-bottom: 2mm; font-size: 8pt; }
+  .case h4 { font-size: 14pt; line-height: 1.4; margin-bottom: 4mm; word-break: keep-all; }
+  .case-grid { grid-template-columns: 23mm minmax(0, 1fr); gap: 2mm 3mm; margin: 0; font-size: 9pt; line-height: 1.55; }
+  .case-grid dt { font-size: 8pt; }
+  .case-grid dd { margin: 0; }
+  .case-result-summary { margin: 3mm 0 4mm; break-inside: avoid; }
+  .case-result-summary h5 { margin-bottom: 2mm; font-size: 9pt; }
+  .case-result-summary .metric-strip { gap: 3mm; }
+  .case-result-summary .metric { padding-top: 2mm; }
+  .case-result-summary .metric strong { font-size: 13pt; }
+  .case-result-summary .metric strong .accent { font-size: inherit; }
+  .case-result-summary .metric span { font-size: 8pt; }
   .footer { padding: 8mm 0 0; }
   a { text-decoration: none; }
 }
